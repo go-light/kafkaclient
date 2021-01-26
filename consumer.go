@@ -17,8 +17,8 @@ type ConsumerConfig struct {
 	Topics             string
 	OffsetReset        string // latest, earliest, none
 	Assignor           string // sticky, roundrobin, range
-	AutoCommit         bool   `toml:"auto_commit"`
-	AutoCommitInterval string `toml:"auto_commit_interval"`
+	AutoCommit         bool
+	AutoCommitInterval string
 	FailTries          int
 }
 
@@ -82,6 +82,10 @@ func NewConsumer(conf *ConsumerConfig) (*Consumer, error) {
 	consumerGroup, err := sarama.NewConsumerGroup(brokers, conf.Group, saramaConfig)
 	if err != nil {
 		return nil, err
+	}
+
+	if conf.FailTries <= 0 {
+		conf.FailTries = 1
 	}
 
 	ctx, cancel := context.WithCancel(context.Background())
