@@ -1,9 +1,9 @@
 # kafka-client
 kafka client
 
-##Install:
+## Install:
 
-	go get github.com/go-light/kafka-client/v1
+	go get github.com/go-light/kafkaclient/v2
 
 ## Consumer
 
