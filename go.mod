@@ -1,5 +1,4 @@
-module github.com/go-light/kafkaclient/v2
+module github.com/go-light/kafkaclient/v3
 
 go 1.15
-
 

@@ -3,7 +3,7 @@ kafka client
 
 ## Install:
 
-	go get github.com/go-light/kafkaclient/v2
+	go get github.com/go-light/kafkaclient/v3
 
 ## Consumer
 
